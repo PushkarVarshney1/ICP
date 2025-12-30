@@ -2,7 +2,9 @@ class Solution {
     private HashMap<Integer , List<Integer>> map;
     public int findCircleNum(int[][] isConnected) {
         map = new HashMap<>();
+        // Build Graph
         for(int i=0;i<isConnected.length;i++)map.put(i , new ArrayList<>());
+
         for(int i =0; i<isConnected.length; i++){
             for(int j =0; j<isConnected[0].length; j++){
                 int ele = isConnected[i][j];
@@ -11,7 +13,8 @@ class Solution {
                 }
             }
         }
-        System.out.print(map);
+        
+        // Main DFS
         int ans = 0;
         Stack<Integer> st = new Stack<>();
         HashSet<Integer> visited = new HashSet<>();
